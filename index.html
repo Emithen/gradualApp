@@ -4,59 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple To-Do List</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        #app {
-            width: 300px;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-        h2 {
-            text-align: center;
-        }
-        input[type="text"] {
-            width: calc(100% - 50px);
-            padding: 8px;
-            margin-right: 4px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            padding: 8px 12px;
-            border: none;
-            background-color: #28a745;
-            color: #ffffff;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
-        }
-        .delete-btn {
-            color: red;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"></link>
 </head>
 <body>
     <div id="app">
@@ -65,37 +13,6 @@
         <button onclick="addTask()">Add</button>
         <ul id="taskList"></ul>
     </div>
-
-    <script>
-        function addTask() {
-            const taskInput = document.getElementById('taskInput');
-            const taskText = taskInput.value.trim();
-
-            if (taskText === "") {
-                alert("Please enter a task.");
-                return;
-            }
-
-            // 새로운 할 일 목록 항목을 생성
-            const taskItem = document.createElement('li');
-            taskItem.textContent = taskText;
-
-            // 삭제 버튼 추가
-            const deleteButton = document.createElement('span');
-            deleteButton.textContent = "❌";
-            deleteButton.className = 'delete-btn';
-            deleteButton.onclick = function() {
-                taskItem.remove();
-            };
-
-            taskItem.appendChild(deleteButton);
-
-            // 목록에 항목 추가
-            document.getElementById('taskList').appendChild(taskItem);
-
-            // 입력 필드 초기화
-            taskInput.value = "";
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
