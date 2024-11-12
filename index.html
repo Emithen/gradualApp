@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple To-Do List</title>
-    <style rel="stylesheet" href="style.css"></style>
+    <title>Modular To-Do List</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app">
         <h2>To-Do List</h2>
         <input type="text" id="taskInput" placeholder="Enter a task">
-        <button onclick="addTask()">Add</button>
+        <button id="addButton">Add</button>
         <ul id="taskList"></ul>
     </div>
-    <script src="script.js"></script>
+    <script type module src="script.js"></script>
 </body>
 </html>

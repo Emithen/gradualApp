@@ -1,29 +1,21 @@
-function addTask() {
-    const taskInput = document.getElementById('taskInput');
-    const taskText = taskInput.value.trim();
+// script.js
 
-    if (taskText === "") {
-        alert("Please enter a task.");
-        return;
-    }
+// 모듈 가져오기
+import { addTask } from './modules/taskManager.js';
+import { getDomElements } from './modules/domUtils.js';
 
-    // 새로운 할 일 목록 항목을 생성
-    const taskItem = document.createElement('li');
-    taskItem.textContent = taskText;
+document.addEventListener('DOMContentLoaded', () => {
+    const { taskInput, addButton, taskList } = getDomElements();
 
-    // 삭제 버튼 추가
-    const deleteButton = document.createElement('span');
-    deleteButton.textContent = "❌";
-    deleteButton.className = 'delete-btn';
-    deleteButton.onclick = function() {
-        taskItem.remove();
-    };
+    addButton.addEventListener('click', () => {
+        addTask(taskInput.value, taskList);
+        taskInput.value = "";  // 입력 필드 초기화
+    });
 
-    taskItem.appendChild(deleteButton);
-
-    // 목록에 항목 추가
-    document.getElementById('taskList').appendChild(taskItem);
-
-    // 입력 필드 초기화
-    taskInput.value = "";
-}
+    taskInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            addTask(taskInput.value, taskList);
+            taskInput.value = "";  // 입력 필드 초기화
+        }
+    });
+});
