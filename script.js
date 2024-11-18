@@ -1,11 +1,13 @@
 // script.js
 
 // 모듈 가져오기
-import { addTask } from './modules/taskManager.js';
+import { addTask, loadTasks } from './modules/taskManager.js';
 import { getDomElements } from './modules/domUtils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const { taskInput, addButton, taskList } = getDomElements();
+
+    loadTasks(taskList);
 
     addButton.addEventListener('click', () => {
         addTask(taskInput.value, taskList);
